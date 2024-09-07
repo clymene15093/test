@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预约系统</title>
+    <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+    <style>
+        #calendar-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px; /* 覆盖顶部80px */
+            background-color: white; /* 或者设置为透明度为 0 的背景颜色 */
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <h1>台北西門町接髮專家Hange韓哥預約系統</h1>
+
+    <div id="calendar-container">
+        <!-- Google Calendar 预约页面 iframe -->
+        <iframe src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3A182AY7SISPU6tdEdyg8U2s08sJT6hsOG__8C98Oq_gRr_fs-D-L7U7XFg6UjNvgz1h55KX7n"></iframe>
+        <!-- 覆盖顶部的 div -->
+        <div id="overlay"></div>
+    </div>
+
+    <script>
+        // 初始化 LIFF
+        document.addEventListener("DOMContentLoaded", function() {
+            liff.init({ liffId: "2006201962-98kbBMLZ" })
+            .then(() => {
+                console.log('LIFF initialized');
+            })
+            .catch((err) => {
+                console.error('LIFF initialization failed', err);
+            });
+        });
+    </script>
+</body>
+</html>
